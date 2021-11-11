@@ -14,15 +14,16 @@ sonarqube {
         property "sonar.projectKey", "SlavaMytnik_SonarTest2"
         property "sonar.organization", "slavamytnik"
         property "sonar.host.url", "https://sonarcloud.io"
+        
         property "sonar.sources", "src/main/java"
 //        property "sonar.binaries", "build/intermediates/classes/debug"
 //        property "sonar.java.binaries", "build/intermediates/app_classes/debug"
         property "sonar.tests", "src/test/java, src/androidTest/java"
 //        property "sonar.java.test.binaries", "build/intermediates/app_classes/debug"
         property "sonar.java.coveragePlugin", "jacoco"
-        property "sonar.coverage.jacoco.xmlReportPaths", "app/build/jacoco/jacoco.xml"
+        property "sonar.coverage.jacoco.xmlReportPaths", "build/jacoco/jacoco.xml"
         property "sonar.junit.reportsPath", "build/test-results/testDebugUnitTest"
-        property "sonar.android.lint.report", "build/reports/lint-results.xml"
+//        property "sonar.android.lint.report", "build/reports/lint-results.xml"
     }
 }
 
@@ -43,6 +44,9 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            testCoverageEnabled = true
         }
     }
     compileOptions {
